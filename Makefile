@@ -21,8 +21,10 @@ else
 		APPS := $(foreach T, $(TESTS), $(wildcard $(APP_DIR)/ch$(T)_*.rs))
 	else ifeq ($(BASE), 1) # Basic tests only
 		APPS := $(foreach T, $(TESTS), $(wildcard $(APP_DIR)/ch$(T)b_*.rs))
-	else # Basic and normal
+	else ifeq ($(BASE), 2)# Basic and normal
 		APPS := $(foreach T, $(TESTS), $(wildcard $(APP_DIR)/ch$(T)*.rs))
+	else # Bad tests only
+		APPS := $(foreach T, $(TESTS), $(wildcard $(APP_DIR)/ch2b_bad*.rs))
 	endif
 endif
 
